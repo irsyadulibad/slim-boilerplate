@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Http\Controllers%s;
+
+use Slim\Psr7\Response;
+
+class %s
+{
+    public function index(Response $response)
+    {
+        return $response;
+    }
+}
