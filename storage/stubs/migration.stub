@@ -1,0 +1,22 @@
+<?php
+
+namespace Database\Migrations;
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Schema\Blueprint;
+
+class %s
+{
+    public function up()
+    {
+        Capsule::schema()->create('table', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Capsule::schema()->drop('table');
+    }
+}

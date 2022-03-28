@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+use App\Console\Kernel;
+use Symfony\Component\Console\Application;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$app = require base_path('bootstrap/app.php');
+$cli = new Application('Slim Boilerplate', '0.1-beta');
+
+// Apply CLI kernel
+Kernel::boot($cli);
+
+$cli->run();
