@@ -15,7 +15,8 @@
         "php-di/slim-bridge": "^3.2",
         "symfony/console": "^6.0",
         "illuminate/database": "^9.5",
-        "vlucas/phpdotenv": "^5.4"
+        "vlucas/phpdotenv": "^5.4",
+        "latte/latte": "^2.11"
     },
     "autoload": {
         "psr-4": {

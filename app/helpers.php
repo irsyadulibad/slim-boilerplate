@@ -1,6 +1,7 @@
 <?php
 
 use App\Exceptions\ConfigException;
+use App\Support\ViewSupport;
 
 if(!function_exists('base_path')) {
     function base_path(string $path = '') {
@@ -39,6 +40,12 @@ if(!function_exists('config')) {
         }
 
         return (object)$config;
+    }
+}
+
+if(!function_exists('view')) {
+    function view(string $name, array $data = []) {
+        return ViewSupport::$factory->render("{$name}.latte", $data);
     }
 }
 

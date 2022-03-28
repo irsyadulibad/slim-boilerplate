@@ -11,6 +11,7 @@ class Kernel
     protected static $providers = [
         \App\Providers\RouteServiceProvider::class,
         \App\Providers\DatabaseServiceProvider::class,
+        \App\Providers\ViewServiceProvider::class,
     ];
 
     protected static $middlewares = [
