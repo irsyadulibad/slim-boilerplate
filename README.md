@@ -6,7 +6,7 @@ Here is a list of packages used in this boilerplate:
 - Slim v4
 - PHP-DI Slim Bridge
 - Symfony Console
-- Illuminate ORM
+- Eloquent ORM
 - DotENV
 
 ## Installation & Setup
