@@ -8,6 +8,7 @@ Here is a list of packages used in this boilerplate:
 - Symfony Console
 - Eloquent ORM
 - DotENV
+- Latte View Engine
 
 ## Installation & Setup
 You need a [composer](https://getcomposer.org) and [git](https://git-scm.com) for download and install the repository and all dependencies
@@ -23,3 +24,4 @@ The application is ready to use, run ``php bolt serve`` to start the development
 
 ### Notes
 - For the ORM Documentation, see at [laravel docs](https://laravel.com/docs/9.x/eloquent)
+- For the Latte usage and documentation, check here at [latte docs](https://latte.nette.org/en/)
