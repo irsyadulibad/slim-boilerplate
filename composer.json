@@ -1,6 +1,6 @@
 {
-    "name": "irsyadulibad/git-autodeploy",
-    "description": "Git Deploy Automations using WebHooks",
+    "name": "irsyadulibad/slim-boilerplate",
+    "description": "Slim PHP Framework Boilerplate",
     "type": "project",
     "license": "MIT",
     "authors": [
