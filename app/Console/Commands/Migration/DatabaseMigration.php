@@ -26,7 +26,7 @@ class DatabaseMigration extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $migrations = MigrationSupport::migrations();
-        $migratedFiles = $this->getMigratedFiles();
+        $migratedFiles = MigrationSupport::getMigratedFiles();
 
         foreach($migrations as $migration) {
             if(in_array($migration->name, $migratedFiles)) continue;
@@ -56,10 +56,5 @@ class DatabaseMigration extends Command
     private function saveMigration(string $migration): void
     {
         Capsule::table('migrations')->insert(compact('migration'));
-    }
-
-    private function getMigratedFiles(): array
-    {
-        return Capsule::table('migrations')->pluck('migration')->toArray();
     }
 }

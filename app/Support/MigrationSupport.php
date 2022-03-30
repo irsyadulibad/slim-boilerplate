@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use FilesystemIterator;
+use Illuminate\Database\Capsule\Manager;
 use RecursiveDirectoryIterator;
 
 class MigrationSupport
@@ -21,5 +22,22 @@ class MigrationSupport
                 'name' => $baseName
             ];
         }, iterator_to_array($iterator));
+    }
+
+    public static function getMigration(string $name)
+    {
+        $path = base_path("database/migrations/{$name}.php");
+        if(!file_exists($path)) return null;
+
+        return (object) [
+            'path' => $path,
+            'class' => cap_after('_', substr($name, 18)),
+            'name' => $name
+        ];
+    }
+
+    public static function getMigratedFiles(): array
+    {
+        return Manager::table('migrations')->pluck('migration')->toArray();
     }
 }
