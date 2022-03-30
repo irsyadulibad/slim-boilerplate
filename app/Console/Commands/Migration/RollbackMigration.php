@@ -21,6 +21,7 @@ class RollbackMigration extends Command
     protected function configure(): void
     {
         $this->addOption('all', 'a', InputOption::VALUE_NONE, 'rollback all migrations');
+        Capsule::schema()->disableForeignKeyConstraints();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -33,10 +34,12 @@ class RollbackMigration extends Command
 
         foreach($migrations as $migration) {
             $info = MigrationSupport::getMigration($migration);
+            $class = "\\Database\\Migrations\\$info->class";
+
             if(is_null($info)) continue;
-            
-            require $info->path;
-            (new ("\\Database\\Migrations\\$info->class"))->down();
+            if(!class_exists($class)) require $info->path;
+
+            (new $class)->down();
             $this->deleteMigration($migration);
 
             $output->writeln("Rolled back: <info>{$info->name}</info>");

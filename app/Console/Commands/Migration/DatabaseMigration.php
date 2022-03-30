@@ -29,10 +29,12 @@ class DatabaseMigration extends Command
         $migratedFiles = MigrationSupport::getMigratedFiles();
 
         foreach($migrations as $migration) {
-            if(in_array($migration->name, $migratedFiles)) continue;
+            $class = "\Database\\Migrations\\{$migration->class}";
 
-            require $migration->path;
-            (new ("\Database\\Migrations\\{$migration->class}"))->up();
+            if(in_array($migration->name, $migratedFiles)) continue;
+            if(!class_exists($class)) require $migration->path;
+
+            (new $class)->up();
             $this->saveMigration($migration->name);
 
             $output->writeln("Migrated: <info>{$migration->name}</info>");
