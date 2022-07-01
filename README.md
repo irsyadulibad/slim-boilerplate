@@ -13,7 +13,7 @@ Here is a list of packages used in this boilerplate:
 ## Installation & Setup
 You need a [composer](https://getcomposer.org) and [git](https://git-scm.com) for download and install the repository and all dependencies
 ```bash
-git clone https://github.com/irsyaduliad/slim-boilerplate
+git clone https://github.com/irsyadulibad/slim-boilerplate
 composer install
 ```
 After this repository is cloned and all dependencies have been installed, then copy the ``.env.example`` file to ``.env`` file.
